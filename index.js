@@ -4,7 +4,7 @@ const articles = require("./data/db.json")
 
 main_app.set("view engine", "ejs")
 main_app.set("views", __dirname + "/views")
-main_app.use(express.static(__dirname + "/public"))
+main_app.use(express.static(__dirname + "/css"))
 
 main_app.get("/", function(req, res){
     res.render("index")
