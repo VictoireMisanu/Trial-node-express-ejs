@@ -17,19 +17,19 @@ main_app.get("/about", function(req, res){
 });
 
 main_app.get("/articles", function(req, res){
-    res.render("articles")
+    res.render("articles", {articles})
 })
 
-// main_app.get("/articles:slug", function(req, res){
-//     const {slug} = req.params
-//     const article = articles.find((article) =>{articles.slug === slug})
-//     if(article){
-//         res.render('article', {article})
-//     }
-//     else{
-//         res.render('404')
-//     }
-// })
+main_app.get("/articles:slug", function(req, res){
+    const {slug} = req.params
+    const article = articles.find((article) =>{article.slug === slug})
+    if(article){
+        res.render('article', {article})
+    }
+    else{
+        res.render('404')
+    }
+})
 main_app.get("/*", function(req, res){
     res.render("404")
 });
